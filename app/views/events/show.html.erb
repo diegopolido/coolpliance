@@ -9,7 +9,7 @@
   <dt><strong><%= model_class.human_attribute_name(:end_at) %>:</strong></dt>
   <dd><%= @event.end_at %></dd>
   <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
-  <dd><%= @event.company_id %></dd>
+  <dd><%= @event.company&.name %></dd>
 </dl>
 
 <div class="form-actions">

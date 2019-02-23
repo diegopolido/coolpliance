@@ -11,9 +11,9 @@
   <dt><strong><%= model_class.human_attribute_name(:registry_number) %>:</strong></dt>
   <dd><%= @employee.registry_number %></dd>
   <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
-  <dd><%= @employee.company_id %></dd>
+  <dd><%= @employee.company&.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:team_id) %>:</strong></dt>
-  <dd><%= @employee.team_id %></dd>
+  <dd><%= @employee.team&.name %></dd>
 </dl>
 
 <div class="form-actions">
