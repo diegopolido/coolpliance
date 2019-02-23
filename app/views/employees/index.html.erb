@@ -23,7 +23,6 @@
         <td><%= employee.registry_number %></td>
         <td><%= employee.company&.name %></td>
         <td><%= employee.team&.name %></td>
-        <td><%=l employee.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_employee_path(employee), :class => 'btn btn-primary btn-xs' %>

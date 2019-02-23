@@ -271,3 +271,4 @@ pt-BR:
         email: E-mail
     errors:
       <<: *errors
+  save: Salvar
