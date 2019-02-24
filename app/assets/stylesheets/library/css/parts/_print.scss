@@ -1,0 +1,10 @@
+@page { margin: 2cm }
+
+body.single-post {
+	#container>header,
+	.sidebar,
+	.relatedposts,
+	.article-footer,
+	#respond,
+	footer.footer{display: none !important;}
+}

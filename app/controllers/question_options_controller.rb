@@ -1,4 +1,4 @@
-class QuestionOptionsController < ApplicationController
+class QuestionOptionsController < UserApplicationController
   before_action :set_question_option, only: [:show, :edit, :update, :destroy]
   before_action :set_resources, only: [:new, :create, :show, :edit, :update, :destroy]
 

@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190224002451) do
+ActiveRecord::Schema.define(version: 20190224012919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.bigint "employee_id"
+    t.bigint "question_option_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_answers_on_employee_id"
+    t.index ["question_option_id"], name: "index_answers_on_question_option_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -30,7 +39,12 @@ ActiveRecord::Schema.define(version: 20190224002451) do
     t.bigint "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.index ["company_id"], name: "index_employees_on_company_id"
+    t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
     t.index ["team_id"], name: "index_employees_on_team_id"
   end
 
@@ -77,8 +91,15 @@ ActiveRecord::Schema.define(version: 20190224002451) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "employees"
+  add_foreign_key "answers", "question_options"
   add_foreign_key "employees", "companies"
   add_foreign_key "employees", "teams"
   add_foreign_key "events", "companies"

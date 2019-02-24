@@ -12,6 +12,14 @@
     <%= f.text_field :registry_number, :class => 'form-control' %>
   </div>
   <div class="form-group">
+    <%= f.label :password, :class => 'control-label' %>
+    <%= f.password_field :password, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation, :class => 'control-label' %>
+    <%= f.password_field :password_confirmation, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= f.label :company_id, :class => 'control-label' %>
     <%= f.select :company_id, @companies.map{ |c| [c.name, c.id] }, {}, {class: 'form-control dropdown-tooggle'} %>
   </div>

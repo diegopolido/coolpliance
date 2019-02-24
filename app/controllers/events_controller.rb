@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+class EventsController < UserApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_resources, only: [:new, :create, :show, :edit, :update, :destroy]
 

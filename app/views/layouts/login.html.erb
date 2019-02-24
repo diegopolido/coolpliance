@@ -1,0 +1,37 @@
+<!doctype html>
+<html class="no-js" lang="pt-br">
+    <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900|Montserrat:400,500,700" rel="stylesheet">
+  <%= stylesheet_link_tag "login", :media => "all" %>
+    </head>
+    <body class="login">
+	<main>
+		<div id="logo"></div>
+    <div class="login-form form-wrapper">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form", autocomplete: "off"}) do |f| %>
+        <div class="form-group">
+          <label class="form-label" for="cpf">CPF</label>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-input" %>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password">Senha</label>
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-input" %>
+        </div>
+        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+          <%= link_to "Esqueci minha senha", new_password_path(resource_name), class: "forgot" %><br />
+        <% end %>
+        <%= f.submit "Entrar", class: "bt bt-primary fluid bt-submit" %>
+        <!-- <button class="bt bt-primary fluid bt-submit" type="submit" click="location.href = 'desafiododia1.html'">Entrar</button> -->
+      <% end %>
+    </div>
+	</main>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <%= javascript_include_tag "login" %>
+    </body>
+</html>

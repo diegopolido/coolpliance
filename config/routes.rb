@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :answers
+  devise_for :employees
+  devise_for :users
   resources :question_options
   resources :questions
   resources :events

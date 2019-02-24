@@ -243,6 +243,8 @@ pt-BR:
     question_options: Opções de Questão
     team: Time
     teams: Times
+    user: Usuário
+    users: Usuários
   activemodel:
     errors:
       <<: *errors

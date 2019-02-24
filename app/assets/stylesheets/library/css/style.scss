@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+// PARTS
+@import "parts/reset";
+
+@import "bootstrap/bootstrap";
+@import "bootstrap/bootstrap-grid";
+@import "slick/slick";
+@import "slick/slick-theme";
+
+@import "parts/palette";
+@import "parts/common";
+// @import "parts/bootstrap";
+@import "parts/typography";
+// @import "parts/fontello";
+// @import "parts/fontello-codes";
+
+// LIBS
+
+
+// CUSTOM
+@import "parts/custom";
+
+/* Small Devices, Tablets */
+// @media only screen and (max-width : 768px) {
+// 	@import "parts/breakpoint-768";
+// }
+@media only screen and (max-width : 1024px) {
+	// @import "parts/breakpoint-1024";
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+	// @import "parts/breakpoint-480";
+}
+
+@media print {
+//    @import "parts/print";
+}

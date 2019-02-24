@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class QuestionsController < UserApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   before_action :set_resources, only: [:new, :create, :show, :edit, :update, :destroy]
 
