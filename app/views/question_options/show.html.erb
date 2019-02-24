@@ -1,0 +1,25 @@
+<%- model_class = QuestionOption -%>
+<div class="page-header">
+  <h1><%= t("models.question_option") %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:label) %>:</strong></dt>
+  <dd><%= @question_option.label %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:correct) %>:</strong></dt>
+  <dd><%= @question_option.correct %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:question_id) %>:</strong></dt>
+  <dd><%= @question_option.question&.title %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              question_options_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_question_option_path(@question_option), :class => 'btn btn-primary' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              question_option_path(@question_option),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

@@ -237,6 +237,10 @@ pt-BR:
     employees: Funcionários
     event: Evento
     events: Eventos
+    question: Questão
+    questions: Questões
+    question_option: Opção de Questão
+    question_options: Opções de Questão
     team: Time
     teams: Times
   activemodel:
@@ -269,6 +273,16 @@ pt-BR:
       user:
         name: Nome
         email: E-mail
+      question:
+        available_in: Disponível em
+        image: Imagem
+        title: Título
+        description: Descrição
+        reason: Motivo
+      question_option:
+        label: Texto
+        correct: Resposta Correta?
+        question_id: Questão
     errors:
       <<: *errors
   save: Salvar

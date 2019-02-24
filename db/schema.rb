@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190223203707) do
+ActiveRecord::Schema.define(version: 20190224002451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,27 @@ ActiveRecord::Schema.define(version: 20190223203707) do
     t.index ["company_id"], name: "index_events_on_company_id"
   end
 
+  create_table "question_options", force: :cascade do |t|
+    t.string "label"
+    t.boolean "correct"
+    t.bigint "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_options_on_question_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.date "available_in"
+    t.string "image"
+    t.string "title"
+    t.text "description"
+    t.text "reason"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "event_id"
+    t.index ["event_id"], name: "index_questions_on_event_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.bigint "company_id"
@@ -61,5 +82,7 @@ ActiveRecord::Schema.define(version: 20190223203707) do
   add_foreign_key "employees", "companies"
   add_foreign_key "employees", "teams"
   add_foreign_key "events", "companies"
+  add_foreign_key "question_options", "questions"
+  add_foreign_key "questions", "events"
   add_foreign_key "teams", "companies"
 end
