@@ -7,7 +7,7 @@
   <dt><strong><%= model_class.human_attribute_name(:available_in) %>:</strong></dt>
   <dd><%= @question.available_in %></dd>
   <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
-  <dd><%= @question.image %></dd>
+  <dd><%= image_tag @question.image %></dd>
   <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
   <dd><%= @question.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>

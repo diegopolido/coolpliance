@@ -19,7 +19,7 @@
       <tr>
         <td><%= link_to question.id, question_path(question) %></td>
         <td><%= question.available_in %></td>
-        <td><%= question.image %></td>
+        <td><%= image_tag question.image, width: 80 %></td>
         <td><%= question.title %></td>
         <td><%= question.description %></td>
         <td><%= question.reason %></td>

@@ -11,5 +11,5 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require library/js/vendor/slick/slick.min
-//= require library/js/main
+//= require turbolinks
+

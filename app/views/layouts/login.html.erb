@@ -16,7 +16,7 @@
     <div class="login-form form-wrapper">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form", autocomplete: "off"}) do |f| %>
         <div class="form-group">
-          <label class="form-label" for="cpf">CPF</label>
+          <label class="form-label" for="cpf">E-mail</label>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-input" %>
         </div>
         <div class="form-group">

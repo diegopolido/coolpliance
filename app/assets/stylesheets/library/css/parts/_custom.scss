@@ -203,6 +203,9 @@ body.login {
 			h2 {
 				color: white;
 			}
+			&.success {
+				background: green;
+			}
 			&.error {
 				background: $error;
 			}

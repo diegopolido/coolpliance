@@ -15,6 +15,7 @@ class AnswersController < EmployeeApplicationController
   # GET /answers/new
   def new
     @answer = Answer.new
+    @questions = Event.current&.questions
   end
 
   # GET /answers/1/edit

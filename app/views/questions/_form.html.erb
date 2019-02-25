@@ -1,11 +1,12 @@
-<%= form_for @question do |f| %>
+<%= form_for @question, html: { multipart: true } do |f| %>
   <div class="form-group">
     <%= f.label :available_in, :class => 'control-label' %>
     <%= f.date_select :available_in, :class => 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :image, :class => 'control-label' %>
-    <%= f.text_field :image, :class => 'form-control' %>
+    <%= f.file_field :image, :class => 'form-control' %>
+    <%= f.hidden_field :image_cache %>
   </div>
   <div class="form-group">
     <%= f.label :title, :class => 'control-label' %>
@@ -21,7 +22,7 @@
   </div>
  <div class="form-group">
     <%= f.label :event_id, :class => 'control-label' %>
-    <%= f.select :event_id, @events.map{ |c| [c.title, c.id] }, {}, {class: 'form-control dropdown-tooggle'} %>
+    <%= f.select :event_id, @events.map{ |c| ["#{c.start_at.strftime("%d/%m/%y")} - #{c.end_at.strftime("%d/%m/%y")}", c.id] }, {}, {class: 'form-control dropdown-tooggle'} %>
   </div>
   <div class="form-actions">
     <%= f.submit t("save"), :class => 'btn btn-primary' %>

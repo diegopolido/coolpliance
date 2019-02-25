@@ -27,6 +27,12 @@ app = {
             })
 
             $(".flip-card .buttonbar a").click(function(e) {
+                questionId = $(this).data("question-id");
+                isCorrect = $(this).data("correct");
+                feedbackClass = isCorrect == true ? "success" : "error";
+                $(".feedback-" + questionId).addClass(feedbackClass);
+                $(".show-" + feedbackClass + "-" + questionId).show();
+
                 e.preventDefault();
 				$(".slick-slider .slick-list").css("overflow","visible")
 				$(this).closest(".flip-card").addClass("flipped");

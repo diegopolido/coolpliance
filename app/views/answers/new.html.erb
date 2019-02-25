@@ -1,6 +1,61 @@
-<%- model_class = Answer -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
-                                 :default => "New #{model_class.model_name.human}") %></h1>
+<div class="slick">
+    <% @questions&.each_with_index do |q, i| %>
+      <% quantity = i + 1 %>
+      <% total = @questions.size %>
+      <% progress = "#{quantity}/#{total}" %>
+        <div class="slide">
+          <div class="flip-card">
+              <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                      <div class="box">
+                          <div class="titlebox">
+                              <h2>Desafio</h2>
+                              <h2><%= progress %></h2>
+                          </div>
+                          <div class="inner-box">
+                              <%= image_tag(q.image, class: "featured") if q.image %>
+                              <h3><%= q.title %></h3>
+                              <div><%= q.description %></div>
+
+                              <div class="buttonbar">
+                                  <% q.question_options&.each do |qo| %>
+                                    <% if qo.label == "Não" %>
+                                      <a href="javascript:;" class="bt bt-cancel" data-question-id="<%= q.id %>" data-correct="<%= qo.correct %>"></a>
+                                    <% end %>
+                                    <% if qo.label == "Sim" %>
+                                      <a href="javascript:;" class="bt bt-confirm" data-question-id="<%= q.id %>" data-correct="<%= qo.correct %>"></a>
+                                    <% end %>
+                                  <% end %>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="flip-card-back">
+                      <div class="box">
+                          <div class="titlebox feedback feedback-<%= q.id %>">
+                              <h2 class="show-error-<%= q.id %>" style="display: none;">Incorreto</h2>
+                              <h2 class="show-success-<%= q.id %>" style="display: none;">Correto</h2>
+                              <h2><%= progress %></h2>
+                          </div>
+                          <div class="inner-box">
+                              <%= image_tag(q.image, class: "featured") if q.image %>
+                              <h3><%= q.title %></h3>
+                              <div><%= q.reason %></div>
+                              <div class="feedback-bar error show-error-<%= q.id %>" style="display: none;">
+                                Você não pontuou :(
+                              </div>
+                              <div class="feedback-bar success show-success-<%= q.id %>" style="display: none;">
+                                Você fez 10 pontos!
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    <% end %>
 </div>
-<%= render :partial => 'form' %>
+
+<div class="buttonbar bottom">
+    <a href="javascript:;" class="bt textlink next">AVANÇAR</a>
+</div>

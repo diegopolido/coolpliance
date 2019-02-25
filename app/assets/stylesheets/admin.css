@@ -12,5 +12,6 @@
  *
  *
  *= require_self
- *= require library/css/style
+ *= require bootswatch/loader
+ *= require bootswatch/bootswatch
  */
